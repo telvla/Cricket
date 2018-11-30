@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Dell"
+    tools:showIn="@layout/activity_dell">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:src="@drawable/heart"
+                >
+            </ImageView>
+        </TableRow>
+
+        <TextView
+            android:id="@+id/id_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/id_list"
+            android:visibility="invisible"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:text="22222222222222"
+            android:textSize="18dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/abstr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3a3a3a"
+            android:text="3333333333333333"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="60dp"
+            android:textSize="16dp" >
+        </TextView>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
