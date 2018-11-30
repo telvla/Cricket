@@ -2,32 +2,18 @@ package at.telvla.cricket;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import static at.telvla.cricket.CurrentNotification.content;
 
 public class Setting extends AppCompatActivity {
-    TextView checkBoxColorText;
-    TextView text_dark_theme;
-    TextView text_size;
-    TextView color_value;
+    TextView checkBoxColorText, text_dark_theme, text_size, color_value, text_check_push;
     CheckBox enableBox;
-    Switch dark_theme;
-    Switch switch_text_size;
-    Switch switch_color;
-    Switch switch_push_active;
-    TextView text_check_push;
+    Switch dark_theme, switch_text_size, switch_color, switch_push_active;
 
     String file_name = "file_dark_theme";
     String file_dark_theme;
@@ -63,9 +49,6 @@ public class Setting extends AppCompatActivity {
         file_ch_push = new File();
         check_push_active = file_ch_push.File_Read(getApplication().getApplicationContext(), file_check_push);
 
-
-        Log.d("themed", "onCreate: " + file_dark_theme);
-
         if (file_dark_theme != null) {
             if (file_dark_theme.equals("dark theme")) {
                 setTheme(R.style.NewsAppThemeDark);
@@ -95,8 +78,8 @@ public class Setting extends AppCompatActivity {
         /**/
         switch_push_active = (Switch)  findViewById(R.id.check_push);
         text_check_push = (TextView) findViewById(R.id.text_check_push);
-        /**/
 
+        /**/
         if (check_push_active != null) {
             if (check_push_active.equals("check push")) {
                 switch_push_active.setChecked(true);
@@ -143,7 +126,6 @@ public class Setting extends AppCompatActivity {
         }
 
         /**/
-
         switch_color.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -160,9 +142,6 @@ public class Setting extends AppCompatActivity {
         });
 
         /**/
-
-        /**/
-
         switch_text_size.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -179,13 +158,9 @@ public class Setting extends AppCompatActivity {
         });
 
         /**/
-
         dark_theme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-
-
                 if (isChecked == true) {
                     text_dark_theme.setText("Dark theme: active");
                     file = new File();
@@ -203,7 +178,6 @@ public class Setting extends AppCompatActivity {
         });
 
         /**/
-
         enableBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -219,7 +193,6 @@ public class Setting extends AppCompatActivity {
         });
 
         /**/
-
         switch_push_active.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
