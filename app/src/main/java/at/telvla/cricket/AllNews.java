@@ -21,24 +21,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-
 public class AllNews extends AppCompatActivity {
 
     ListView listView;
-    String limit = "1";
     String cursor_current, category;
     Integer int_cursor_current;
-    public SimpleAdapter adapter;
-
-
-    List<String> ar_id = new ArrayList<String>();
-    List<String> ar_date = new ArrayList<String>();
-    List<String> ar_view = new ArrayList<String>();
-    List<String> ar_title = new ArrayList<String>();
-    List<String> ar_abstr = new ArrayList<String>();
-    List<String> ar_img = new ArrayList<String>();
-
-    String Separator = ";";
     ArrayList<Map<String, Object>> data;
     Retrofit CallServer;
     API api;
@@ -84,10 +71,6 @@ public class AllNews extends AppCompatActivity {
             int_cursor_current = Integer.parseInt(cursor_current);
         }
 
-
-        //contactList = new ArrayList<>();
-
-
         CallServer = ApiClient.getClient();
         api = CallServer.create(API.class);
 
@@ -116,7 +99,7 @@ public class AllNews extends AppCompatActivity {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-                Log.v("addlist", "первый --" + firstVisibleItem);Log.v("addlist", "текущий ----" + visibleItemCount);Log.v("addlist", "последний -------" + totalItemCount);Log.v("addlist", "-------------------------------");
+                //Log.v("addlist", "первый --" + firstVisibleItem);Log.v("addlist", "текущий ----" + visibleItemCount);Log.v("addlist", "последний -------" + totalItemCount);Log.v("addlist", "-------------------------------");
 
                 int position = firstVisibleItem+visibleItemCount;
                 int lim = totalItemCount;
@@ -129,10 +112,8 @@ public class AllNews extends AppCompatActivity {
 
                             List<NewsInfo> list_add = response.body();
                             list.addAll(list_add);
-
                             adapters = new NewsAdapter(getApplicationContext(), list);
                             listView.setAdapter(adapters);
-
                             listView.setSelection(list.size() - 5);
 
                         }
