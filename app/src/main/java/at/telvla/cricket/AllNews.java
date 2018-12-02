@@ -121,7 +121,7 @@ public class AllNews extends AppCompatActivity {
                 int position = firstVisibleItem+visibleItemCount;
                 int lim = totalItemCount;
 
-                if (position >= lim && totalItemCount > 0) { // if ( firstVisibleItem == 1 && visibleItemCount == 3 && totalItemCount == 4) {
+                if (position >= lim && totalItemCount > 0) {
                     Call<List<NewsInfo>> call = api.GetAllNewsJson(1);
                     call.enqueue(new Callback<List<NewsInfo>>() {
                         @Override
@@ -132,6 +132,8 @@ public class AllNews extends AppCompatActivity {
 
                             adapters = new NewsAdapter(getApplicationContext(), list);
                             listView.setAdapter(adapters);
+
+                            listView.setSelection(list.size() - 5);
 
                         }
 
