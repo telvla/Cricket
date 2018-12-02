@@ -11,11 +11,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="?attr/colorPrimary"
     >
-
-<!--
-    style="@style/NewsAppThemeDark" no work
--->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:paddingLeft="13dp"
-            android:textColor="#00bbff"
+            android:textColor="#00ba2f"
             android:textSize="16dp"
             android:text="General Options"/>
     </LinearLayout>
@@ -43,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="Введите имя кота..."/>
+                android:text="Font size"/> <!---->
             <TextView
                 android:id="@+id/checkBoxColorText"
                 android:layout_width="match_parent"
@@ -203,11 +198,6 @@
             >
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -252,8 +242,6 @@
             >
         </LinearLayout>
     </LinearLayout>
-
-
 
 
 

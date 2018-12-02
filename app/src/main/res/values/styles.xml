@@ -26,7 +26,7 @@
     <style name="NewsAppThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#000</item>
         <item name="colorPrimaryDark">#000</item>
-        <item name="colorAccent">#2200ba</item>
+        <item name="colorAccent">#09ce3d</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textSize">14dp</item>
@@ -40,7 +40,7 @@
     <style name="NewsAppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#fff</item>
         <item name="colorPrimaryDark">#818181</item>
-        <item name="colorAccent">#008f29</item>
+        <item name="colorAccent">#09ce3d</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textSize">14dp</item>
