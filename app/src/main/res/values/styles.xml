@@ -1,9 +1,9 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#4DDE00</item>
+        <item name="colorPrimaryDark">#818181</item>
+        <item name="colorAccent">#4DDE00</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -14,9 +14,9 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#4DDE00</item>
+        <item name="colorPrimaryDark">#818181</item>
+        <item name="colorAccent">#4DDE00</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -26,35 +26,29 @@
     <style name="NewsAppThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#000</item>
         <item name="colorPrimaryDark">#000</item>
-        <item name="colorAccent">#09ce3d</item>
+        <item name="colorAccent">#FF1800</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">#ffffff</item>
         <item name="colorButtonNormal">#000000</item>
-
-        <item name="colorControlActivated">#dc8f41</item>
+        <item name="colorControlActivated">#FF1800</item>
         <item name="colorControlNormal">#09ce3d</item>
     </style>
+
 
     <style name="NewsAppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#fff</item>
         <item name="colorPrimaryDark">#818181</item>
-        <item name="colorAccent">#09ce3d</item>
+        <item name="colorAccent">#FF1800</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">#000000</item>
         <item name="colorButtonNormal">#ffffff</item>
-
-        <item name="colorControlActivated">#dc8f41</item>
+        <item name="colorControlActivated">#FF1800</item>
         <item name="colorControlNormal">#09ce3d</item>
     </style>
-
-
-
-
-
 
 </resources>
 

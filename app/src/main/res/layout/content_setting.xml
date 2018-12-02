@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:paddingLeft="13dp"
-            android:textColor="#00ba2f"
+            android:textColor="#A1285F"
             android:textSize="16dp"
             android:text="General Options"/>
     </LinearLayout>
