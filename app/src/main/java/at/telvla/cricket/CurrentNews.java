@@ -80,8 +80,8 @@ public class CurrentNews extends AppCompatActivity{
                 ImgBody = token_body.img_description;
                 count_title = Title.length();
 
-                if(count_title > 20){
                     setTitle(Title.substring(0, 20) + "...");
+                    if(count_title > 20){
                 }else{
                     setTitle(Title);
                 }
@@ -106,6 +106,7 @@ public class CurrentNews extends AppCompatActivity{
                             "<img src='" + Img + "' width='100%' style='padding: 0px;margin: 0px;'>" +
                             "<p style='font-size:16px;padding-left:10px;padding-right:10px;color:#205f01;'><b>" + Title + "</b></p>" +
                             "<div style='margin-left:10px;margin-right:10px;'><p style='text-align: justify;'>" + Description + "</p></div>" +
+                            "<div style='margin-left:10px;margin-right:10px;margin-bottom: 25px;'><a href='" + token_body.link_page + "' style='font-size: 11px;color: #09ce3d;'>Reference source</a></div>" +
                             "<img src='" + ImgBody + "' width='100%' style='padding: 0px;margin: 0px;'>" +
                             "</body></html>";
 

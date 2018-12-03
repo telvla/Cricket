@@ -26,6 +26,7 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
     Integer int_id_current;
     Point size;
     Integer width;
+    String CountView;
 
     public NewsAdapter(Context context, List<NewsInfo> list) {
         super(context, 0, list);
@@ -70,7 +71,7 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
         textViewTitle.setText(contactList.get(position).getTitle());
         textViewAbstr.setText(contactList.get(position).getAbstr());
         textViewDate.setText("date: " + contactList.get(position).getDate());
-        textViewView.setText("view: " + contactList.get(position).getDate());
+        textViewView.setText("view: " + contactList.get(position).getCountView());
 
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context
@@ -86,7 +87,7 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
 
         Picasso.with(context)
                 .load(link_img)
-                .resize(width, 1500)
+                .resize(width, 450)
                 .centerCrop()
                 .error(R.drawable.drawer_shadow)
                 .into(ImageViewImg);

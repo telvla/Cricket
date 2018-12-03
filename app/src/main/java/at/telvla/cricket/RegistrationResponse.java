@@ -9,6 +9,7 @@ public class RegistrationResponse {
     public String title;
     public String abstr;
     public String content;
+    public String link_page;
 
 }
 

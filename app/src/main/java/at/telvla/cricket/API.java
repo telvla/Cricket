@@ -13,6 +13,10 @@ public interface API {
     Call<RegistrationResponse> GetAllNews (@Query("limit") String title, @Query("category") String abstract_txt);
     @POST("/parser.html")
     Call<RegistrationResponse> GetCurrentNews (@Query("id_current") String id_current, @Query("category") String categories);
+
+
+
+
     @POST("/parser.html")
     Call<List<NewsInfo>> GetAllNewsJson (@Query("all_news_json") Integer all_news_json);
     @POST("/parser.html")

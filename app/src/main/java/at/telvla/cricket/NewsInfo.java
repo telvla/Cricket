@@ -11,18 +11,26 @@ public class NewsInfo {
     private String Img_description;
     private String Name_razdel;
     private String Link_page;
+    private String CountView;
 
-    NewsInfo (String Id, String Title, String Abstr, String Description, String Date, String Img, String Img_description, String Name_razdel, String Link_page) {
+    NewsInfo (String Id, String Title, String Abstr, String Description, String Date, String Img, String Img_description, String Name_razdel, String Link_page, String CountView) {
         this.Id = Id;
         this.Title = Title;
         this.Abstr = Abstr;
         this.Description = Description;
         this.Date = Date;
+        this.CountView = CountView;
         this.Img = Img;
         this.Img_description = Img_description;
         this.Abstr = Name_razdel;
         this.Link_page = Link_page;
     }
+
+    public String getCountView() {
+        return CountView;
+    }
+
+    public void setCountView(String CountView) {CountView = CountView;}
 
     public String getId() {
         return Id;
