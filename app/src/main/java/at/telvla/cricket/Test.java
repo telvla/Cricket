@@ -52,7 +52,7 @@ public class Test extends AppCompatActivity {
             handler.postDelayed(delayrunnable, 3000);
         }else {
             tv_check_connection.setVisibility(View.VISIBLE);
-            tv_check_connection.setText("Could not Connect to internet");
+            tv_check_connection.setText("Could not connect to internet");
             tv_check_connection.setBackgroundColor(Color.RED);
             tv_check_connection.setTextColor(Color.WHITE);
         }
