@@ -13,6 +13,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,16 +30,15 @@ public class Test extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tv_check_connection = (TextView) findViewById(R.id.tv_check_connection);
+        /*tv_check_connection = (TextView) findViewById(R.id.tv_check_connection);
         mNetworkReceiver = new NetworkChangeReceiver();
-        registerNetworkBroadcastForNougat();
-
+        registerNetworkBroadcastForNougat();*/
     }
 
-    public static void dialog(boolean value){
-
-        if(value){
-            tv_check_connection.setText("We are back !!!");
+    /*public static void dialog (boolean value) {
+        Log.v("keshav", "--------" + value);
+        if(value == true){
+            tv_check_connection.setText("Internet connection");
             tv_check_connection.setBackgroundColor(Color.GREEN);
             tv_check_connection.setTextColor(Color.WHITE);
 
@@ -49,16 +49,15 @@ public class Test extends AppCompatActivity {
                     tv_check_connection.setVisibility(View.GONE);
                 }
             };
-            handler.postDelayed(delayrunnable, 3000);
-        }else {
+            handler.postDelayed(delayrunnable, 1500);
+        } else {
             tv_check_connection.setVisibility(View.VISIBLE);
             tv_check_connection.setText("Could not connect to internet");
             tv_check_connection.setBackgroundColor(Color.RED);
             tv_check_connection.setTextColor(Color.WHITE);
         }
-    }
-
-
+    }*/
+/*
     private void registerNetworkBroadcastForNougat() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
@@ -81,5 +80,5 @@ public class Test extends AppCompatActivity {
         super.onDestroy();
         unregisterNetworkChanges();
     }
-
+*/
 }

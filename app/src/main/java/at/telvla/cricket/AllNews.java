@@ -1,7 +1,13 @@
 package at.telvla.cricket;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +17,9 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +43,7 @@ public class AllNews extends AppCompatActivity {
     String file_name = "file_dark_theme";
     List<NewsInfo> list;
     NewsAdapter adapters;
+    private BroadcastReceiver mNetworkReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +70,9 @@ public class AllNews extends AppCompatActivity {
         Intent intentId = getIntent();
         category = intentId.getStringExtra("category");
         cursor_current = intentId.getStringExtra("cursor_current");
+
+        mNetworkReceiver = new NetworkChangeReceiver();
+        registerNetworkBroadcastForNougat();
 
         if(category == null) {
             category = "england";
@@ -160,5 +173,39 @@ public class AllNews extends AppCompatActivity {
         Intent intent = new Intent(AllNews.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public static void dialog (boolean value) {
+        Log.v("keshav", "--------" + value);
+        if (value == true) {
+            Toast toast = Toast.makeText(MyApplication.getContext(), "Internet connection", Toast.LENGTH_LONG);
+            toast.show();
+        } else {
+            Toast toast = Toast.makeText(MyApplication.getContext(), "Could not connect to internet", Toast.LENGTH_LONG);
+            toast.show();
+        }
+    }
+
+    private void registerNetworkBroadcastForNougat() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        }
+    }
+
+    protected void unregisterNetworkChanges() {
+        try {
+            unregisterReceiver(mNetworkReceiver);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterNetworkChanges();
     }
 }

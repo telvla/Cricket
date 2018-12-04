@@ -7,19 +7,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Test"
     tools:showIn="@layout/activity_test">
-
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="at.telvla.cricket.CurrentNews">
-
         <TextView
             android:id="@+id/tv_check_connection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Connection establised !"
-            android:padding="7dp"
+            android:padding="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:gravity="center"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -27,7 +25,5 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_alignParentBottom="true"
             />
-
     </RelativeLayout>
-
 </android.support.constraint.ConstraintLayout>
