@@ -3,7 +3,6 @@ package at.telvla.cricket;
 import android.app.Application;
 import android.content.Context;
 
-
 /**
  * Static context
  */

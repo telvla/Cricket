@@ -178,8 +178,8 @@ public class AllNews extends AppCompatActivity {
     public static void dialog (boolean value) {
         Log.v("keshav", "--------" + value);
         if (value == true) {
-            Toast toast = Toast.makeText(MyApplication.getContext(), "Internet connection", Toast.LENGTH_LONG);
-            toast.show();
+            /*Toast toast = Toast.makeText(MyApplication.getContext(), "Internet connection", Toast.LENGTH_LONG);
+            toast.show();*/
         } else {
             Toast toast = Toast.makeText(MyApplication.getContext(), "Could not connect to internet", Toast.LENGTH_LONG);
             toast.show();

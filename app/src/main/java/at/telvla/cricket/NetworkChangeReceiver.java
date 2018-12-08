@@ -15,10 +15,8 @@ public class NetworkChangeReceiver extends BroadcastReceiver
         try {
             if (isOnline(context)) {
                 dialog(true);
-                Log.v("keshav", "Online Connect Intenet ");
             } else {
                 dialog(false);
-                Log.v("keshav", "Conectivity Failure !!! ");
             }
         } catch (NullPointerException e) {
             e.printStackTrace();

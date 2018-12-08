@@ -87,7 +87,7 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
 
         Picasso.with(context)
                 .load(link_img)
-                .resize(width, 450)
+                .resize(width, 800)
                 .centerCrop()
                 .error(R.drawable.drawer_shadow)
                 .into(ImageViewImg);
