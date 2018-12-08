@@ -15,6 +15,8 @@ public interface API {
     Call<RegistrationResponse> GetCurrentNews (@Query("id_current") String id_current, @Query("category") String categories);
 
 
+    @POST("/parser.html")
+    Call<List<NewsInfo>> GetSelectNewsJson (@Query("all_news_json") Integer id);
 
 
     @POST("/parser.html")

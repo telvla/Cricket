@@ -118,6 +118,7 @@ public class AllNews extends AppCompatActivity {
                 int lim = totalItemCount;
 
                 if (position >= lim && totalItemCount > 0) {
+
                     Call<List<NewsInfo>> call = api.GetAllNewsJson(1);
                     call.enqueue(new Callback<List<NewsInfo>>() {
                         @Override
