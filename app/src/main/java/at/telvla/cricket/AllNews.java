@@ -118,8 +118,11 @@ public class AllNews extends AppCompatActivity {
                 int lim = totalItemCount;
 
                 if (position >= lim && totalItemCount > 0) {
+                //android listview dynamically scroll add item
+                //final int lastItem = firstVisibleItem + visibleItemCount;
+               // if(lastItem == totalItemCount){
 
-                    Call<List<NewsInfo>> call = api.GetAllNewsJson(1);
+                    Call<List<NewsInfo>> call = api.GetSelectNewsJson(2187);
                     call.enqueue(new Callback<List<NewsInfo>>() {
                         @Override
                         public void onResponse(Call<List<NewsInfo>> call, Response<List<NewsInfo>> response) {
@@ -128,7 +131,7 @@ public class AllNews extends AppCompatActivity {
                             list.addAll(list_add);
                             adapters = new NewsAdapter(getApplicationContext(), list);
                             listView.setAdapter(adapters);
-                            listView.setSelection(list.size() - 5);
+                            //listView.setSelection(list.size() - 5);
 
                         }
 
@@ -210,3 +213,19 @@ public class AllNews extends AppCompatActivity {
         unregisterNetworkChanges();
     }
 }
+
+/*
+              Call<List<NewsInfo>> call = api.GetSelectNewsJson(1);
+                    call.enqueue(new Callback<List<NewsInfo>>() {
+                        @Override
+                        public void onResponse(Call<List<NewsInfo>> call, Response<List<NewsInfo>> response) {
+
+                            List<NewsInfo> list_add = response.body();
+                            list.addAll(list_add);
+                            adapters = new NewsAdapter(getApplicationContext(), list);
+                            listView.setAdapter(adapters);
+                            listView.setSelection(list.size() - 5);
+
+                        }
+
+*/

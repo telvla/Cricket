@@ -16,7 +16,7 @@ public interface API {
 
 
     @POST("/parser.html")
-    Call<List<NewsInfo>> GetSelectNewsJson (@Query("all_news_json") Integer id);
+    Call<List<NewsInfo>> GetSelectNewsJson (@Query("limit_id") Integer id);
 
 
     @POST("/parser.html")
