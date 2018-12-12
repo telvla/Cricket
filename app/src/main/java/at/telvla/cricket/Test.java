@@ -15,6 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,55 +33,33 @@ public class Test extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*tv_check_connection = (TextView) findViewById(R.id.tv_check_connection);
-        mNetworkReceiver = new NetworkChangeReceiver();
-        registerNetworkBroadcastForNougat();*/
-    }
+        WebView webView = (WebView) findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        WebSettings settings = webView.getSettings();
+        settings.setDefaultTextEncodingName("utf-8");
+        webView.setPadding(0, 0, 0, 0);
+        String WebBody = "<html><body style='padding: 0px;margin: 0px;'>" +
+                    "<a href='http://lira-shop.com/'>test</a>" +
+                    "</body></html>";
+        webView.loadData(WebBody, "text/html", "UTF-8");
 
-    /*public static void dialog (boolean value) {
-        Log.v("keshav", "--------" + value);
-        if(value == true){
-            tv_check_connection.setText("Internet connection");
-            tv_check_connection.setBackgroundColor(Color.GREEN);
-            tv_check_connection.setTextColor(Color.WHITE);
-
-            Handler handler = new Handler();
-            Runnable delayrunnable = new Runnable() {
-                @Override
-                public void run() {
-                    tv_check_connection.setVisibility(View.GONE);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.v("webview_test", "первый --" + view + url);
+                if(url.equals("http://lira-shop.com/")) {
+                    Log.v("webview_test", "work");
+                    view.loadUrl(url);
                 }
-            };
-            handler.postDelayed(delayrunnable, 1500);
-        } else {
-            tv_check_connection.setVisibility(View.VISIBLE);
-            tv_check_connection.setText("Could not connect to internet");
-            tv_check_connection.setBackgroundColor(Color.RED);
-            tv_check_connection.setTextColor(Color.WHITE);
-        }
-    }*/
-/*
-    private void registerNetworkBroadcastForNougat() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        }
-    }
+                return true;
+            }
+        });
 
-    protected void unregisterNetworkChanges() {
-        try {
-            unregisterReceiver(mNetworkReceiver);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unregisterNetworkChanges();
+
+
+
+
+
     }
-*/
 }
