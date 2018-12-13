@@ -1,101 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
     >
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        >
+        android:layout_marginRight="0dp">
         <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-            >
-            </ImageView>
+                android:scaleType="fitStart"></ImageView>
         </TableRow>
         <TextView
             android:id="@+id/id_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/id_list"
-            android:visibility="invisible"
-            >
-        </TextView>
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:visibility="invisible"></TextView>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            >
+            android:layout_marginRight="0dp">
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#205f01"
-                android:textStyle="bold"
-                android:layout_marginTop="1dp"
                 android:layout_marginLeft="13dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginRight="13dp"
                 android:text="@+id/title"
+                android:textColor="#205f01"
                 android:textSize="16dp"
-                >
-            </TextView>
+                android:textStyle="bold"></TextView>
         </LinearLayout>
         <TextView
             android:id="@+id/abstr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#3a3a3a"
-            android:text="@+id/abstr"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="13dp"
+            android:layout_marginTop="-5dp"
             android:layout_marginRight="13dp"
             android:layout_marginBottom="15dp"
-            android:textSize="13dp" >
-        </TextView>
-        <LinearLayout android:orientation="horizontal"
+            android:text="@+id/abstr"
+            android:textColor="#3a3a3a"
+            android:textSize="13dp"></TextView>
+        <LinearLayout
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:id="@+id/line">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            android:orientation="horizontal">
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/create_date"
-                android:textColor="#c1c1c1"
-                android:textSize="11dp" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="right"
-                android:id="@+id/count_view"
-                android:textColor="#c1c1c1"
-                android:textSize="11dp" />
+                android:layout_gravity="left">
+                <ImageView
+                    android:id="@+id/img_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7dp"
+                    android:src="@drawable/ic_action_evnt"></ImageView>
+                <TextView
+                    android:id="@+id/create_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#c1c1c1"
+                    android:textSize="12dp" />
+            </LinearLayout>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
+                android:gravity="right">
+                <ImageView
+                    android:id="@+id/img_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7dp"
+                    android:gravity="right"
+                    android:src="@drawable/ic_action_view"></ImageView>
+                <TextView
+                    android:id="@+id/count_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="right"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#c1c1c1"
+                    android:textSize="12dp" />
+            </LinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
-            android:background="#c1c1c1"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            android:background="#c1c1c1" />
     </TableLayout>
 </LinearLayout>

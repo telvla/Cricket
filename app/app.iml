@@ -129,6 +129,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:26.0.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-26.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\Telvla\AndroidStudioProjects\Cricket\app\libs\svg-android.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-23.3.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-26.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-26.0.2" level="project" />

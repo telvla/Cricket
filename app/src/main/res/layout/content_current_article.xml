@@ -8,18 +8,15 @@
     tools:context=".CurrentArticle"
     tools:showIn="@layout/activity_current_article"
     android:background="?attr/colorPrimary">
-
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context="at.telvla.cricket.CurrentNews">
-
             <TableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,7 +27,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
-
                 <ImageView
                     android:id="@+id/img_current"
                     android:layout_width="wrap_content"
@@ -38,9 +34,7 @@
                     android:scaleType="fitStart"
                     >
                 </ImageView>
-
             </TableRow>
-
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
@@ -50,7 +44,6 @@
                     android:layout_marginRight="13dp"
                     >
                 </TextView>
-
                 <TextView
                     android:id="@+id/content"
                     android:layout_width="wrap_content"
@@ -61,10 +54,7 @@
                     android:textSize="14dp"
                     >
                 </TextView>
-
             </TableLayout>
         </LinearLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,9 @@
 package at.telvla.cricket;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.larvalabs.svgandroid.SVG;
+import com.larvalabs.svgandroid.SVGParser;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -53,9 +57,21 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
         TextView textViewTitle = (TextView) rowView.findViewById(R.id.title);
         TextView textViewAbstr = (TextView) rowView.findViewById(R.id.abstr);
         ImageView ImageViewImg = (ImageView) rowView.findViewById(R.id.img);
+        ImageView img_time = (ImageView) rowView.findViewById(R.id.img_time);
+        //ImageView img_view = (ImageView) rowView.findViewById(R.id.img_view);
         TextView textViewDate = (TextView) rowView.findViewById(R.id.create_date);
         TextView textViewView = (TextView) rowView.findViewById(R.id.count_view);
 
+        /*img_time.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        SVG svg_time = SVGParser.getSVGFromResource(context.getResources(), R.raw.baseline_date_range_24px);
+        Drawable drawable_time = svg_time.createPictureDrawable();
+        img_time.setImageDrawable(drawable_time);
+
+        img_view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        SVG svg_view = SVGParser.getSVGFromResource(context.getResources(), R.raw.baseline_date_range_24px);
+        Drawable drawable_view = svg_view.createPictureDrawable();
+        img_view.setImageDrawable(drawable_view);
+        */
         Num = new File().File_Read(context, mFileName);
 
         if(Num != null){
@@ -71,6 +87,8 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
         textViewTitle.setText(contactList.get(position).getTitle());
         textViewAbstr.setText(contactList.get(position).getAbstr());
         textViewDate.setText("date: " + contactList.get(position).getDate());
+
+        //textViewView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_view, 0, 0, 0 );
         textViewView.setText("view: " + contactList.get(position).getCountView());
 
         DisplayMetrics metrics = new DisplayMetrics();
