@@ -1,11 +1,10 @@
 package at.telvla.cricket;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Point;
-import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.Html;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,6 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.larvalabs.svgandroid.SVG;
-import com.larvalabs.svgandroid.SVGParser;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -30,7 +26,6 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
     Integer int_id_current;
     Point size;
     Integer width;
-    String CountView;
 
     public NewsAdapter(Context context, List<NewsInfo> list) {
         super(context, 0, list);
@@ -62,30 +57,26 @@ public class NewsAdapter extends ArrayAdapter<NewsInfo> {
         TextView textViewDate = (TextView) rowView.findViewById(R.id.create_date);
         TextView textViewView = (TextView) rowView.findViewById(R.id.count_view);
 
-        /*img_time.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        SVG svg_time = SVGParser.getSVGFromResource(context.getResources(), R.raw.baseline_date_range_24px);
-        Drawable drawable_time = svg_time.createPictureDrawable();
-        img_time.setImageDrawable(drawable_time);
-
-        img_view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        SVG svg_view = SVGParser.getSVGFromResource(context.getResources(), R.raw.baseline_date_range_24px);
-        Drawable drawable_view = svg_view.createPictureDrawable();
-        img_view.setImageDrawable(drawable_view);
-        */
         Num = new File().File_Read(context, mFileName);
-
-        if(Num != null){
+        if (Num != null) {
             int_id_current = Integer.parseInt(Num);
-            if(Integer.parseInt(contactList.get(position).getId()) > int_id_current){
+            if (Integer.parseInt(contactList.get(position).getId()) > int_id_current) {
                 Res_file_save = new File().File_Entry(context, mFileName, contactList.get(position).getId());
             }
-        }else{
+        } else {
             Res_file_save = new File().File_Entry(context, mFileName, contactList.get(position).getId());
         }
-
         textViewId.setText(contactList.get(position).getId());
-        textViewTitle.setText(contactList.get(position).getTitle());
-        textViewAbstr.setText(contactList.get(position).getAbstr());
+        //textViewTitle.setText(contactList.get(position).getTitle());
+        //textViewAbstr.setText(contactList.get(position).getAbstr());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            textViewTitle.setText(Html.fromHtml(contactList.get(position).getTitle(), Html.FROM_HTML_MODE_COMPACT));
+            textViewAbstr.setText(Html.fromHtml(contactList.get(position).getAbstr(), Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            textViewTitle.setText(Html.fromHtml(contactList.get(position).getTitle()));
+            textViewAbstr.setText(Html.fromHtml(contactList.get(position).getAbstr()));
+        }
+
         textViewDate.setText("date: " + contactList.get(position).getDate());
 
         //textViewView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_view, 0, 0, 0 );

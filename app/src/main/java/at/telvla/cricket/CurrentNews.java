@@ -1,8 +1,10 @@
 package at.telvla.cricket;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,16 +15,26 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,10 +43,12 @@ import retrofit2.Retrofit;
 
 public class CurrentNews extends AppCompatActivity{
 
-    String NamePage, WebBody, Title, Description, Img, ImgBody, id_current, category, id_current_value;
+    String Title, Description, Img, ImgBody, id_current, category, id_current_value;
     int int_id_current, count_title;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    TextView TitleView;
+    TextView DiscriprionView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +87,6 @@ public class CurrentNews extends AppCompatActivity{
         }
 
         id_current = "" + int_id_current;
-        Log.v("bags", "id_current - " + id_current);
-        Log.v("bags", "category - " + category);
 
         Call<RegistrationResponse> call = api.GetCurrentNews(id_current, category);
         call.enqueue(new Callback<RegistrationResponse>() {
@@ -87,7 +99,14 @@ public class CurrentNews extends AppCompatActivity{
                 ImgBody = token_body.img_description;
                 count_title = Title.length();
                 setTitle(Title.substring(0, 20) + "...");
-                    if(count_title > 20){
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    setTitle(Html.fromHtml(Title.substring(0, 20) + "...", Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    setTitle(Html.fromHtml(Title.substring(0, 20) + "..."));
+                }
+
+                if(count_title > 20){
                 }else{
                     setTitle(Title);
                 }
@@ -98,38 +117,17 @@ public class CurrentNews extends AppCompatActivity{
                     ImgBody = "http://news.images.itv.com/image/file/375961/mobile_article_img.jpg";
                 }
 
-                TextView TitleView = (TextView) findViewById(R.id.title);
-                TextView DiscriprionView = (TextView) findViewById(R.id.disc);
-
-                TitleView.setText(Title);
-                //DiscriprionView.setText(Description);
-
-                //DiscriprionView.setMovementMethod(new ScrollingMovementMethod());
+                TitleView = (TextView) findViewById(R.id.title);
+                DiscriprionView = (TextView) findViewById(R.id.disc);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    TitleView.setText(Html.fromHtml(Title, Html.FROM_HTML_MODE_COMPACT));
                     DiscriprionView.setText(Html.fromHtml(Description, Html.FROM_HTML_MODE_COMPACT));
                 } else {
+                    TitleView.setText(Html.fromHtml(Title));
                     DiscriprionView.setText(Html.fromHtml(Description));
                 }
 
-                /*WebView mWebView = (WebView) findViewById(R.id.webView);
-                WebSettings settings = mWebView.getSettings();
-                settings.setDefaultTextEncodingName("utf-8");
-                mWebView.getSettings().setJavaScriptEnabled(true);
-                mWebView.setPadding(0, 0, 0, 0);
-
-                if (NamePage == null) {
-
-                    WebBody = "<html><body style='padding: 0px;margin: 0px;'>" +
-                            "<img src='" + Img + "' width='100%' style='padding: 0px;margin: 0px;'>" +
-                            "<p style='font-size:16px;padding-left:10px;padding-right:10px;color:#205f01;'><b>" + Title + "</b></p>" +
-                            "<div style='margin-left:10px;margin-right:10px;'><p style='text-align: justify;'>" + Description + "</p></div>" +
-                            "<div style='margin-left:10px;margin-right:10px;margin-bottom: 25px;'><a href='" + token_body.link_page + "' style='font-size: 11px;color: #09ce3d;'>Reference source</a></div>" +
-                            "<img src='" + ImgBody + "' width='100%' style='padding: 0px;margin: 0px;'>" +
-                            "</body></html>";
-
-                    mWebView.loadData(WebBody, "text/html", "UTF-8");
-                }*/
             }
             @Override
             public void onFailure(Call<RegistrationResponse> call, Throwable t) {
@@ -174,10 +172,36 @@ public class CurrentNews extends AppCompatActivity{
             View rootView = inflater.inflate(R.layout.fragment_slaider_img, container, false);
             Integer id_img = getArguments().getInt(ARG_SECTION_NUMBER);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.icon);
-            Log.i("if_img", "----" + id_img);
+
             try {
-                int[] mImageIds = { R.drawable.final_0, R.drawable.final_0, R.drawable.final_0, R.drawable.final_0, R.drawable.final_0, R.drawable.final_0 };
-                imageView.setImageResource(mImageIds[id_img]);
+
+                Integer width;
+                String link_img;
+                List<String> mImageId = new ArrayList<String>();
+                mImageId.add("");
+                mImageId.add("https://s3.eu-central-1.amazonaws.com/krasota-style/img/blog1/articles/content/ZAQFmQGZ5CiTNhUWAxO7qPEeA-_Yhy2J-5BRyDCsd.jpg");
+                mImageId.add("http://cdn.appaix.com/2016/0128/live-cricket-2014-11_1.jpg");
+                mImageId.add("https://9968c6ef49dc043599a5-e151928c3d69a5a4a2d07a8bf3efa90a.ssl.cf2.rackcdn.com/84263-7.jpg");
+
+                DisplayMetrics metrics = new DisplayMetrics();
+                WindowManager windowManager = (WindowManager) getContext()
+                        .getSystemService(Context.WINDOW_SERVICE);
+                windowManager.getDefaultDisplay().getMetrics(metrics);
+                width = metrics.widthPixels;
+
+                if (mImageId.get(id_img).length() == 0) {
+                    link_img = "file:///android_asset/cricket_img_1.jpg";
+                } else {
+                    link_img = mImageId.get(id_img);
+                }
+
+                Picasso.with(getContext())
+                        .load(link_img)
+                        .resize(width, 800)
+                        .centerCrop()
+                        .error(R.drawable.final_0)
+                        .into(imageView);
+
             } catch (NullPointerException e) {
             }
             return rootView;
