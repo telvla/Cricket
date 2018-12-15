@@ -80,6 +80,12 @@ public class CurrentArticle extends AppCompatActivity {
         setTitle(notificationcurrent.getTitle().substring(0, 20) + "...");
         title.setText(notificationcurrent.getTitle());
         content.setText(notificationcurrent.getContent());
+
+
+
+
+
+
     }
 
     @Override

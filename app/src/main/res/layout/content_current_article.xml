@@ -27,6 +27,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
+
+
+
+
+
+
+
+
                 <ImageView
                     android:id="@+id/img_current"
                     android:layout_width="wrap_content"
@@ -34,6 +42,14 @@
                     android:scaleType="fitStart"
                     >
                 </ImageView>
+
+
+
+
+
+
+
+
             </TableRow>
                 <TextView
                     android:id="@+id/title"
@@ -44,6 +60,8 @@
                     android:layout_marginRight="13dp"
                     >
                 </TextView>
+
+
                 <TextView
                     android:id="@+id/content"
                     android:layout_width="wrap_content"
@@ -54,6 +72,8 @@
                     android:textSize="14dp"
                     >
                 </TextView>
+
+
             </TableLayout>
         </LinearLayout>
     </ScrollView>
